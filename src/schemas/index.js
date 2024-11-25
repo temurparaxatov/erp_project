@@ -1,0 +1,5 @@
+export * from "./assignment.schema.js"
+export * from "./courses.schema.js"
+export * from "./students.schema.js"
+export * from "./teacher.schema.js"
+export * from "./user.schema.js"
