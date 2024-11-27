@@ -1,1 +1,5 @@
 export * from "./user.service.js"
+export * from "./teachers.service.js"
+export * from "./students.service.js"
+export * from "./course.service.js"
+export * from "./assignment.service.js"
