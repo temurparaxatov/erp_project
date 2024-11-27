@@ -1,7 +1,7 @@
 import { db } from '../database/index.js'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import { logger } from '../utils/index.js'
+import { createAccessAndRefresh, logger } from '../utils/index.js'
 import {AppError} from '../utils/index.js';
 
 export const getUserService = async (type, data = '') => {
@@ -66,16 +66,8 @@ export const loginUserService = async (body) => {
             throw new Error('Invalid email or password')
         }
 
-        const token = jwt.sign(
-            {
-                id: user.id,
-                email: user.email,
-                role: user.role,
-            },
-            process.env.JWT_SECRET,
-            { expiresIn: '1h' },
-        )
-
+        const token = createAccessAndRefresh(user)
+        
         logger.info(`User logged in: ${email}`)
         return {
             token,

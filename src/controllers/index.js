@@ -1,2 +1,6 @@
 export * from "./setup.controller.js"
 export * from "./auth.controller.js"
+export * from "./teachers.controller.js"
+export * from "./students.controller.js"
+export * from "./course.controller.js"
+export * from "./assignment.controller.js"
